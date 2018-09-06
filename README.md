@@ -23,6 +23,22 @@ apt-get install -y git
 git clone https://github.com/abbeyokgo/aria2_installer
 cd aria2_installer && chmod u+x *.sh && ./install_aria2.sh
 ```
+#### 安装过程配置
+![](1.png)
+![](2.png)
+![](3.png)
+
+#### 安装完之后，打开访问地址，输入刚才设置的用户名和密码
+![](4.png)
+
+#### 进入YAAW界面，打开设置，将RPC地址填入第一栏
+![](5.png)
+
+#### 配置成功，显示版本号和速度栏
+![](6.png)
+
+
+
 ### 相关命令
 ```
 #启动
