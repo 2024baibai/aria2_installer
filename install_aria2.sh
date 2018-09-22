@@ -38,9 +38,7 @@ function setting(){
 	read -p "设置用户名：" user
 	read -p "设置密码：" pass
 	echo "-------------------------------"
-	sed -i "s/rpc-secret=/#rpc-secret=/g" /data/aria2/aria2.conf
-	sed -i "s/#rpc-user=/rpc-user=${user}/g" /data/aria2/aria2.conf
-	sed -i "s/#rpc-passwd=/rpc-passwd=${pass}/g" /data/aria2/aria2.conf
+	sed -i "s/rpc-secret=/rpc-secret=${pass}/g" /data/aria2/aria2.conf
 	#下载yaaw
 	wget -P /data/aria2 https://github.com/helloxz/yaaw/archive/master.zip
 	cd /data/aria2
@@ -65,7 +63,7 @@ function setting(){
 	echo "访问地址：http://${osip}:6080"
 	echo "用户名：${user}"
 	echo "密码：${pass}"
-	echo "RPC地址：http://${user}:${pass}@$1:6800/jsonrpc"
+	echo "RPC地址：http://token:${pass}@$1:6800/jsonrpc"
 
     #添加定时任务，自动更新tracker
     echo "0 0 * * * sh /data/aria2/auto_tracker.sh" >> /var/spool/cron/root
