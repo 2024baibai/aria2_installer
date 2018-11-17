@@ -70,6 +70,8 @@ function setting(){
 	if [ "$a" = "y" ]
 	then
     		echo "0 0 * * * sh /data/aria2/auto_tracker.sh" >> /var/spool/cron/root
+	else
+		echo "后续可在crontab添加定时任务：0 0 * * * sh /data/aria2/auto_tracker.sh"
 	fi
 	
 	#一点点清理工作
