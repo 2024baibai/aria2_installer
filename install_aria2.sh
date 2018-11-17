@@ -64,9 +64,13 @@ function setting(){
 	echo "用户名：${user}"
 	echo "密码：${pass}"
 	echo "RPC地址：http://token:${pass}@$1:6800/jsonrpc"
-
-    #添加定时任务，自动更新tracker
-    echo "0 0 * * * sh /data/aria2/auto_tracker.sh" >> /var/spool/cron/root
+	echo "是否添加定时任务，自动更新tracker?（可提高磁力下载速度，每天服务器0点重启，对正在下载的任务有影响！！！）[y/n]"
+	read -p ":" auto_trace
+    	#添加定时任务，自动更新tracker
+	if [ "$a" = "y" ]
+	then
+    		echo "0 0 * * * sh /data/aria2/auto_tracker.sh" >> /var/spool/cron/root
+	fi
 	
 	#一点点清理工作
 	rm -rf /data/aria2/*.zip
