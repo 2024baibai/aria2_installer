@@ -73,6 +73,11 @@ function setting(){
 	else
 		echo "后续可在crontab添加定时任务：0 0 * * * sh /data/aria2/auto_tracker.sh"
 	fi
+	#更新一次
+	sh /data/aria2/auto_tracker.sh
+	
+	#启动aria2
+	sh /data/aria2/aria2.sh start
 	
 	#一点点清理工作
 	rm -rf /data/aria2/*.zip
