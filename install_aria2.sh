@@ -71,13 +71,8 @@ function setting(){
 	then
     		echo "0 0 * * * sh /data/aria2/auto_tracker.sh" >> /var/spool/cron/root
 	else
-		echo "后续可在crontab添加定时任务：0 0 * * * sh /data/aria2/auto_tracker.sh"
+		echo "后续可手动运行更新tracker sh /data/aria2/auto_tracker.sh"
 	fi
-	#更新一次
-	sh /data/aria2/auto_tracker.sh
-	
-	#启动aria2
-	sh /data/aria2/aria2.sh start
 	
 	#一点点清理工作
 	rm -rf /data/aria2/*.zip
@@ -85,6 +80,12 @@ function setting(){
 	rm -rf /data/aria2/*.txt
 	rm -rf /data/aria2/*.md
 	rm -rf /data/aria2/yaaw-*
+	
+	#更新一次
+	sh /data/aria2/auto_tracker.sh
+	
+	#启动aria2
+	sh /data/aria2/aria2.sh start
 }
 
 #自动放行端口
